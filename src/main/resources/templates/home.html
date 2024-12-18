@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <h1>Diary</h1>
+        <ul>
+                <a href="">Hem</a> <span>-</span>
+                <a th:href="@{/all-posts}">Alla inlägg</a> <span>-</span>
+                <a th:href="@{/new-post}">Skapa nytt inlägg</a>
+                
+        </ul>
+    </header>
+
+    <main>
+        <h2>Detta är din dagbok</h2>
+    </main>
+</body>
+</html>
