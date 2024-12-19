@@ -9,24 +9,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @Controller
 public class CreatePostController {
-    
+
     @Autowired
     private DiaryRepository diaryRepository;
 
     @GetMapping("/new-post")
-    public String newPost(Model model){
+    public String newPost(Model model) {
 
         // model.addAttribute("allPosts", diaryRepository.findAll());
 
-        return"new-post";
+        return "new-post";
     }
 
     @PostMapping("create-post")
-    public String addNewPost(@RequestParam("title") String titleName, @RequestParam("content") String contentName, @RequestParam("dateNow") LocalDate dateName ){
-
+    public String addNewPost(@RequestParam("title") String titleName, @RequestParam("content") String contentName,
+            @RequestParam("dateNow") LocalDate dateName) {
 
         System.out.println("Nytt inlägg från forumet " + titleName + " " + dateName + " " + contentName);
         Diary diary = new Diary();
@@ -35,8 +34,16 @@ public class CreatePostController {
         diary.setDate(dateName);
         diaryRepository.save(diary);
 
-
         return "redirect:/new-post";
+    }
+
+    @GetMapping("/delete")
+    public String deletePost(@RequestParam int id) {
+
+        System.out.println("Delete mapping post: " + id); 
+        diaryRepository.deleteById(id);// radera posten från databasen
+
+    return "redirect:/all-posts";
     }
 
 }

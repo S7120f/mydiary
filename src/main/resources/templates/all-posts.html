@@ -22,6 +22,9 @@
         <!-- Visar varje dagboksinlägg som en separat box -->
         <div th:each="post : ${allPosts}" class="diary-entry-box">
 
+            <!-- Delete knapp -->
+            <a th:href="@{delete(id=${post.id})}" class="delete-button">[X]</a>
+
             <!-- Datum för inlägget -->
             <div class="entry-date">
                 <span th:text="${post.date}"></span>
