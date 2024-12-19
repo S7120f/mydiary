@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Alla inlägg</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -19,21 +20,22 @@
         <h2>Detta är sidan för alla dina dagboksinlägg</h2>
         
         <!-- Visar varje dagboksinlägg som en separat box -->
-        <div th:each="post : ${allPosts}">
-            <!-- Rubrik för inlägget -->
-            <div>
-                <span th:text="${post.title}"></span>
-            </div>
+        <div th:each="post : ${allPosts}" class="diary-entry-box">
+
             <!-- Datum för inlägget -->
-            <div>
+            <div class="entry-date">
                 <span th:text="${post.date}"></span>
             </div>
+            <!-- Rubrik för inlägget -->
+            <div class="entry-header">
+                <span th:text="${post.title}"></span>
+            </div>
             <!-- Innehållet i dagboksinlägget -->
-            <div>
+            <div class="entry-content">
                 <span th:text="${post.content}"></span>
             </div>
             <!-- Fotnot, kan vara för signatur eller annan info -->
-            <div>
+            <div class="entry-footer">
                 <span>Dagbok Inlägg</span>
             </div>
         </div>
