@@ -17,18 +17,18 @@
 
     <main>
         <h2>Skapa ditt inlägg</h2>
-        <form>
 
+        <form method="post" th:action="@{/create-post}" > 
             <div>
                 <label>Date</label>
                 <label>Title</label>
                 <br>
-                <input type="date">
-                <input type="text" placeholder="Title">
+                <input type="date" name="dateNow">
+                <input type="text" placeholder="Title" name="title">
             </div>
 
             <div>
-                <textarea name="" id="" cols="37" rows="10" placeholder="Your text"></textarea>
+                <textarea name="content" id="" cols="37" rows="10" placeholder="Your text"></textarea>
             </div>
             <button type="submit">Skapa</button>
 

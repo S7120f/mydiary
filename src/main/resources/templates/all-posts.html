@@ -16,7 +16,27 @@
     </header>
 
     <main>
-        <h2>Detta är sidan för alla dina inlägg</h2>
+        <h2>Detta är sidan för alla dina dagboksinlägg</h2>
+        
+        <!-- Visar varje dagboksinlägg som en separat box -->
+        <div th:each="post : ${allPosts}">
+            <!-- Rubrik för inlägget -->
+            <div>
+                <span th:text="${post.title}"></span>
+            </div>
+            <!-- Datum för inlägget -->
+            <div>
+                <span th:text="${post.date}"></span>
+            </div>
+            <!-- Innehållet i dagboksinlägget -->
+            <div>
+                <span th:text="${post.content}"></span>
+            </div>
+            <!-- Fotnot, kan vara för signatur eller annan info -->
+            <div>
+                <span>Dagbok Inlägg</span>
+            </div>
+        </div>
     </main>
 </body>
 </html>
