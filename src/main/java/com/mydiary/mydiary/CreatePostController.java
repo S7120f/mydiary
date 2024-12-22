@@ -40,10 +40,10 @@ public class CreatePostController {
     @GetMapping("/delete")
     public String deletePost(@RequestParam int id) {
 
-        System.out.println("Delete mapping post: " + id); 
+        System.out.println("Delete mapping post: " + id);
         diaryRepository.deleteById(id);// radera posten från databasen
 
-    return "redirect:/all-posts";
+        return "redirect:/all-posts";
     }
 
 }

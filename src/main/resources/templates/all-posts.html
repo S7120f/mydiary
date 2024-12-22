@@ -10,17 +10,18 @@
     <header>
         <h1>Alla inlägg</h1>
         <ul>
-                <a th:href="@{/}">Hem</a> <span>-</span>
-                <a th:href="@{/all-posts}">Alla inlägg</a> <span>-</span>
-                <a th:href="@{/new-post}">Skapa nytt inlägg</a>
-        </ul>
+            <li><a th:href="@{/}">Hem</a></li>
+            <span>-</span>
+            <li><a th:href="@{/all-posts}">Alla inlägg</a></li>
+            <span>-</span>
+            <li><a th:href="@{/new-post}">Skapa nytt inlägg</a></li>
+          </ul>
     </header>
 
     <main>
-        <h2>Detta är sidan för alla dina dagboksinlägg</h2>
-
         <!-- Formulär för att välja datumintervall -->
          <form method="get" th:action="@{/filter-posts}">
+            <label>Filterara datum för dina inlägg</label>
             <label for="startDate">Startdatum: </label>
             <input type="date" id="startDate" name="startDate" required>
             <label for="endDate">Slutdatum: </label>

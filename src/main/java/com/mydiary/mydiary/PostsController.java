@@ -41,10 +41,11 @@ public class PostsController {
     }
 
     @GetMapping("/filter-posts")
-    public String filterPost(Model model, @RequestParam("startDate") LocalDate startDate, @RequestParam("endDate") LocalDate endDate) {
-    Iterable<Diary> filteredDiaries = diaryRepository.findByDateBetween(startDate, endDate);
-    model.addAttribute("allPosts", filteredDiaries);
-    return "all-posts";    
+    public String filterPost(Model model, @RequestParam("startDate") LocalDate startDate,
+            @RequestParam("endDate") LocalDate endDate) {
+        Iterable<Diary> filteredDiaries = diaryRepository.findByDateBetween(startDate, endDate);
+        model.addAttribute("allPosts", filteredDiaries);
+        return "all-posts";
     }
 
 }

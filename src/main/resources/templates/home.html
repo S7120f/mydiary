@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HomePage</title>
+    <link th:rel="stylesheet" th:href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Diary</h1>
+        <h1>Din Dagbok</h1>
         <ul>
-                <a href="">Hem</a> <span>-</span>
-                <a th:href="@{/all-posts}">Alla inlägg</a> <span>-</span>
-                <a th:href="@{/new-post}">Skapa nytt inlägg</a>
-                
-        </ul>
+            <li><a th:href="@{/}">Hem</a></li>
+            <span>-</span>
+            <li><a th:href="@{/all-posts}">Alla inlägg</a></li>
+            <span>-</span>
+            <li><a th:href="@{/new-post}">Skapa nytt inlägg</a></li>
+          </ul>
     </header>
 
     <main>
-        <h2>Detta är din dagbok</h2>
+        <h2>Välkommen till din Dagbok!</h2>
     </main>
 </body>
 </html>

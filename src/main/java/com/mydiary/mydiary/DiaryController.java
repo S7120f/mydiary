@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DiaryController {
 
     @GetMapping("/")
-    public String getHome(){
+    public String getHome() {
         return "/home";
     }
-    
+
 }
