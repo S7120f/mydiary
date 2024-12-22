@@ -17,9 +17,9 @@ public class PostsController {
 
     @GetMapping("/all-posts")
     public String allPosts(Model model) {
-
-        model.addAttribute("allPosts", diaryRepository.findAll());
-
+        // Hämta alla inlägg där datumet är idag eller tidigare
+        Iterable<Diary> allDiaries = diaryRepository.findByDateBeforeOrDateEquals(LocalDate.now(), LocalDate.now());
+        model.addAttribute("allPosts", allDiaries);
         return "all-posts";
     }
 
@@ -29,17 +29,22 @@ public class PostsController {
         if (diary != null) {
             model.addAttribute("diary", diary);
             return "post-update";
-
         }
 
         return "redirect:/all-posts";
-
     }
 
     @PostMapping("/update-post")
     public String saveUpdatedPost(Diary diary) {
         diaryRepository.save(diary);
         return "redirect:/all-posts";
+    }
+
+    @GetMapping("/filter-posts")
+    public String filterPost(Model model, @RequestParam("startDate") LocalDate startDate, @RequestParam("endDate") LocalDate endDate) {
+    Iterable<Diary> filteredDiaries = diaryRepository.findByDateBetween(startDate, endDate);
+    model.addAttribute("allPosts", filteredDiaries);
+    return "all-posts";    
     }
 
 }

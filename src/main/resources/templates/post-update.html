@@ -8,16 +8,9 @@
 <body>
     <header>
         <h1>Redigera inlägg</h1>
-        <ul>
-                <a th:href="@{/}">Hem</a> <span>-</span>
-                <a th:href="@{/all-posts}">Alla inlägg</a> <span>-</span>
-                <a th:href="@{/new-post}">Skapa nytt inlägg</a>
-        </ul>
     </header>
 
     <main>
-        <h2>Redigera ditt inlägg</h2>
-
         <form method="post" th:action="@{/update-post}" th:object="${diary}"> 
             <input type="hidden" th:field="*{id}">
             <div>

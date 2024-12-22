@@ -18,13 +18,23 @@
 
     <main>
         <h2>Detta är sidan för alla dina dagboksinlägg</h2>
+
+        <!-- Formulär för att välja datumintervall -->
+         <form method="get" th:action="@{/filter-posts}">
+            <label for="startDate">Startdatum: </label>
+            <input type="date" id="startDate" name="startDate" required>
+            <label for="endDate">Slutdatum: </label>
+            <input type="date" id="endDate" name="endDate" required>
+            <button type="submit">Filtrera</button>
+
+         </form>
         
         <!-- Visar varje dagboksinlägg som en separat box -->
         <div th:each="post : ${allPosts}" class="diary-entry-box">
 
             <!-- Delete knapp -->
             <a th:href="@{delete(id=${post.id})}" class="delete-button">[X]</a>
-            <a th:href="@{/update-post(id=${post.id})}" class="edit-button">[Edit]</a>
+            <a th:href="@{/update-post(id=${post.id})}" class="edit-button">[Redigera]</a>
 
             <!-- Datum för inlägget -->
             <div class="entry-date">
