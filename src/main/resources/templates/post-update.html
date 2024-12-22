@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update post</title>
+</head>
+<body>
+    <header>
+        <h1>Redigera inlägg</h1>
+        <ul>
+                <a th:href="@{/}">Hem</a> <span>-</span>
+                <a th:href="@{/all-posts}">Alla inlägg</a> <span>-</span>
+                <a th:href="@{/new-post}">Skapa nytt inlägg</a>
+        </ul>
+    </header>
+
+    <main>
+        <h2>Redigera ditt inlägg</h2>
+
+        <form method="post" th:action="@{/update-post}" th:object="${diary}"> 
+            <input type="hidden" th:field="*{id}">
+            <div>
+                <label>Date</label>
+                <label>Title</label>
+                <br>
+                <input type="date" th:field="*{date}">
+                <input type="text" placeholder="Title" th:field="*{title}">
+            </div>
+
+            <div>
+                <textarea th:field="*{content}" cols="37" rows="10" placeholder="Your text"></textarea>
+            </div>
+            <button type="submit">Spara</button>
+
+        </form>
+
+    </main>
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alla inlägg</title>
-    <link rel="stylesheet" href="style.css">
+    <link th:rel="stylesheet" th:href="style.css">
 </head>
 <body>
     <header>
@@ -24,6 +24,7 @@
 
             <!-- Delete knapp -->
             <a th:href="@{delete(id=${post.id})}" class="delete-button">[X]</a>
+            <a th:href="@{/update-post(id=${post.id})}" class="edit-button">[Edit]</a>
 
             <!-- Datum för inlägget -->
             <div class="entry-date">
@@ -37,6 +38,7 @@
             <div class="entry-content">
                 <span th:text="${post.content}"></span>
             </div>
+
             <!-- Fotnot, kan vara för signatur eller annan info -->
             <div class="entry-footer">
                 <span>Dagbok Inlägg</span>
